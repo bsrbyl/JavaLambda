@@ -3,6 +3,7 @@ package day03;
 import day01.Lambda01;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Lambda03 {
     public static void main(String[] args) {
@@ -27,6 +28,8 @@ public class Lambda03 {
         xILeBitenElKontrol(menu);
         System.out.println("\n   ***   ");
         charSayisiBykElPrint(menu);
+        System.out.println("\n   ***   ");
+        ilkElHarcSonHrfSiraliPrint(menu);
 
 
     }
@@ -138,19 +141,45 @@ public class Lambda03 {
     // Task : Karakter sayisi en buyuk elemani yazdiriniz.
 
     public static void charSayisiBykElPrint(List<String>menu){
-        System.out.println(menu.
+       Stream<String> sonIsim=(menu.
                 stream().
                 sorted(Comparator.comparing(t -> t.toString().length()).reversed()).
-                findFirst());
+               // findFirst());
+                       limit(3)); //limit(a) akısdan cıkan elemanları a parametresine gore ilk a elamanı alır.
 
+        /*
+sonIsim.toArray()--> limit() meth return dan dolayı  stream type olan sonIsim toArray() method ile array type convert edildi
+ */
+
+        System.out.println(Arrays.toString(sonIsim.toArray()));//arraya cevrilen sonisimm stream print edildi
+
+        //limit(1) => Sınırlandırma demek. Bu akışın elemanlarından oluşan, uzunluğu maxSize'dan uzun olmayacak
+// şekilde kesilmiş bir akış return eder. Stream return eder.
+ /*
+  TRİCK : •    Stream'ler ekrana direk yazdırılamaz. Stream'i toArray() ile Array'e çeviririz. Array'i de Arrays.toString() 'in içine alıp yazdırabiliriz.
+•  Ör; System.out.println(Arrays.toString(***.toArray())); veya System.out.println(Arrays.asList(***.toArray())); kullanılabilir.
+
+   */
         // akıs cıktısını bir veriable assaign edilebilir
 
         Optional<String > enBykel=menu.
                 stream().
-                sorted(Comparator.comparing(t -> t.toString().length()).reversed()).
-                findFirst();
+                sorted(Comparator.comparing(t -> t.toString().length()).
+                        reversed()).
+                  findFirst();
+
+    }
+    // Task : list elemanlarini son harfine göre siralayıp ilk eleman hariç kalan elemanlari print ediniz.
+    public static void ilkElHarcSonHrfSiraliPrint(List<String> menu){
+        menu.
+                stream().//akısa alındı
+                sorted(Comparator.comparing(t->t.charAt(t.length()-1))).//son harfe göre sıralandı
+                skip(1).//ilk eleman atlandı -->adana
+                forEach(t-> System.out.print(t+" "));
     }
 
-    // Task : list elemanlarini son harfine göre siralayıp ilk eleman hariç kalan elemanlari print ediniz.
+    //skip(1) => atlama demek. Akışın ilk n elemanını attıktan sonra bu akışın kalan elemanlarından oluşan bir akış return eder.
+// Bu akış n'den daha az öğe içeriyorsa, boş bir akış döndürülür. Bu, durum bilgisi olan bir ara işlemdir.
+//skip(list.size()-1) => List'in uzunluğunun 1 eksiğini yazarsak son elemanı yazdırırız.
 }
 
