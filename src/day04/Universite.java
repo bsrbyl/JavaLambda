@@ -2,25 +2,32 @@ package day04;
 
 public class Universite {
     /*
-TASK :
-fields --> Universite (String)
-           bolum (String)
-           ogrcSayisi (int)
-           notOrt (int)
-           olan POJO clas craete edip main method içinde 5 arklı obj'den List create ediniz.
- */
-   private String universite;
-   private String bolum;
-   private int ogrenciSayisi;
-   private double notOrt;
+    TASK :
+    fields --> Universite (String)
+               bolum (String)
+               ogrcSayisi (int)
+               notOrt (int)
+               olan POJO clas craete edip main method içinde 5 arklı obj'den List create ediniz.
+               pojo class: plan old java object --> model classı
 
-    public Universite() {
+               private veriable
+               constructor
+               getter setter
+               toString
+     */
+
+   private String  universite;
+   private String  bolum;
+   private int ogrSayisi;
+   private int notOrt;
+
+    public Universite(){
     }
 
-    public Universite(String universite, String bolum, int ogrenciSayisi, double notOrt) {
+    public Universite(String universite, String bolum, int ogrSayisi, int notOrt) {
         this.universite = universite;
         this.bolum = bolum;
-        this.ogrenciSayisi = ogrenciSayisi;
+        this.ogrSayisi = ogrSayisi;
         this.notOrt = notOrt;
     }
 
@@ -40,29 +47,29 @@ fields --> Universite (String)
         this.bolum = bolum;
     }
 
-    public int getOgrenciSayisi() {
-        return ogrenciSayisi;
+    public int getOgrSayisi() {
+        return ogrSayisi;
     }
 
-    public void setOgrenciSayisi(int ogrenciSayisi) {
-        this.ogrenciSayisi = ogrenciSayisi;
+    public void setOgrSayisi(int ogrSayisi) {
+        this.ogrSayisi = ogrSayisi;
     }
 
-    public double getNotOrt() {
+    public int getNotOrt() {
         return notOrt;
     }
 
-    public void setNotOrt(double notOrt) {
+    public void setNotOrt(int notOrt) {
         this.notOrt = notOrt;
     }
 
     @Override
     public String toString() {
-        return "Universite{" +
+        return
                 "universite='" + universite + '\'' +
                 ", bolum='" + bolum + '\'' +
-                ", ogrenciSayisi=" + ogrenciSayisi +
+                ", ogrSayisi=" + ogrSayisi +
                 ", notOrt=" + notOrt +
-                '}';
+               "\n";
     }
 }
