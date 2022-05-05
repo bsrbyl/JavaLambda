@@ -30,7 +30,7 @@ public class Lambda01 {
 */
 
         List<Integer> sayi=new ArrayList<>(Arrays.asList(34,22,16,11,35,20,63,21,65,44,66,64,81,38,15));
-//Task : Structured Programming kullanarak list elemanlarını aralarında bosluk olacak sekilde print ediniz.
+
         printElStuructured(sayi);
         System.out.println("\n***");
         printElFunctional(sayi);
@@ -51,6 +51,7 @@ public class Lambda01 {
         System.out.println("\n***");
 
     }
+    //Task : Structured Programming kullanarak list elemanlarını aralarında bosluk olacak sekilde print ediniz.
     public static void printElStuructured(List<Integer> sayi){
         for (Integer w:sayi) {
             System.out.print(w+" ");
